@@ -52,9 +52,13 @@ components:
           format: date-time
           type: string
     Address:
+      required:
+      - postcode
       properties:
         city:
           type: string
+        postcode:
+          type: integer
     PageResponse:
       properties:
         content: {}
