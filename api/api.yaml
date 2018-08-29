@@ -1,0 +1,60 @@
+---
+openapi: 3.0.1
+info:
+  title: Majom
+  description: Krisz
+  version: 1.0.0
+paths:
+  /user:
+    get:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        201:
+          content:
+            application/json: {}
+    parameters:
+    - name: size
+      in: query
+      schema:
+        type: integer
+  /info: {}
+components:
+  schemas:
+    User:
+      title: Root Type for User
+      description: The root of the User type's schema.
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        age:
+          format: int32
+          type: integer
+        createdAt:
+          format: date-time
+          type: string
+    Address:
+      properties:
+        city:
+          type: string
+    PageResponse:
+      properties:
+        content: {}
